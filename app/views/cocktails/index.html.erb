@@ -1,2 +1,14 @@
-<h1>Cocktails#index</h1>
-<p>Find me in app/views/cocktails/index.html.erb</p>
+<h1> All the cocktails! </h1>
+
+<ul>
+  <% @cocktails.each do |cocktail| %>
+  <li>
+    <p>
+      <%= cocktail.name %>
+    </p>
+    <%= link_to "See more =>", cocktail_path(cocktail) %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Coctail', new_cocktail_path, class: "btn btn-warning" %>

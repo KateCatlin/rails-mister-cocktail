@@ -1,25 +1,21 @@
 class DosesController < ApplicationController
-  before_action :set_dose, only: [:show, :destroy]
-
-  def index
-    @doses = Dose.all
-  end
-
-  def show
-  end
 
   def new
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose = Dose.new
   end
 
   def create
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose.cocktail = @cocktail
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
   end
 
   def destroy
-  end
-
-  private
-
-  def set_dose
-    @dose = Dose.find(params[:id])
+    @dose.destroy
   end
 end
