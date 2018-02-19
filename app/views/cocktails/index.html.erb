@@ -1,14 +1,28 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://picsum.photos/1024/768/?random');">
+  <div class="banner-content">
+    <h1>Mister Cocktail</h1>
+    <p>Pick your poison.</p>
+  </div>
+</div>
+
+<% image_tag("banner.jpg", alt: "Banner of cocktails", class: "banner-content") %>
+
 <h1> All the cocktails! </h1>
 
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li>
-    <p>
-      <%= cocktail.name %>
-    </p>
-    <%= link_to "See more =>", cocktail_path(cocktail) %>
-  </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: url('https://picsum.photos/200/300/?random')">
+        <div class="card-description">
+          <h2><%= cocktail.name %></h2>
+        </div>
+        <%= link_to "See more =>", cocktail_path(cocktail), class: "card-link" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to 'New Coctail', new_cocktail_path, class: "btn btn-warning" %>
+
+<%= link_to 'New Cocktail Old School!', new_cocktail_path(@cocktail), class: "btn btn-warning" %>

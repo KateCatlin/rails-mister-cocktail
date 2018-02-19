@@ -4,8 +4,8 @@
   <% @cocktail.doses.each do |dose| %>
   <li>
     <p>
-      <%= dose.ingredient.name %>
-      <%= dose.description %>,
+      <%= dose.ingredient.name %>:
+      <%= dose.description %>
     </p>
   </li>
   <% end %>
