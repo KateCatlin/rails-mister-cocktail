@@ -15,7 +15,7 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: url('https://picsum.photos/200/300/?random')">
+      <div class="card" style="background-image: url('<%= image_path("cocktail.jpg") %>')">
         <div class="card-description">
           <h2><%= cocktail.name %></h2>
         </div>
