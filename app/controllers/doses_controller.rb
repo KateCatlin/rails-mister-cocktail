@@ -8,7 +8,6 @@ class DosesController < ApplicationController
 
   def create
     @dose = Dose.new
-    binding.pry
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose.cocktail = @cocktail
     @dose.description = params[:dose][:description]
@@ -21,7 +20,9 @@ class DosesController < ApplicationController
   end
 
   def destroy
+    @dose = Dose.find(params[:id])
     @dose.destroy
+    @cocktail = @dose.cocktail
     redirect_to cocktail_path(@cocktail)
   end
 end
