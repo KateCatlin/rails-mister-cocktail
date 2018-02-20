@@ -6,7 +6,17 @@
 </div>
 
 <div class="text-center">
+  <h1>What is 'soup night'?</h1>
+  <p>Soup Night is a 1x/month celebration of community, warmth, and food. <br>
+    Normally I (Kate) make everyone soup, you come and eat it. Maybe you bring something to contribute as well. Or just show up and smile.
+    <br>
+    <br>
+    What follows is a fun collection of the best soups we've had, searchable by ingredient. <br>
+    Add YOUR suggestion of the next soup we should make as well!
+  </p>
+
   <%= link_to 'Add a soup!', new_cocktail_path(@cocktail), class: "btn btn-treehouse" %>
+
 </div>
 
 <div class="container">
@@ -17,7 +27,7 @@
         <div class="card-description">
           <h2><%= cocktail.name %></h2>
         </div>
-        <%= link_to "See more =>", cocktail_path(cocktail), class: "card-link" %>
+        <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
       </div>
     </div>
     <% end %>
