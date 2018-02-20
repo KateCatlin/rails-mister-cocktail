@@ -44,6 +44,7 @@ gem 'pry-byebug'
 gem 'figaro'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'json'
 
 
 group :development, :test do

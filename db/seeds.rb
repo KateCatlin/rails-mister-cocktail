@@ -14,13 +14,16 @@
 require 'json'
 require 'open-uri'
 
-url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-drinks_serialized = open(url).read
-drinks = JSON.parse(drinks_serialized).flatten
 
-drinks[1].each do |hash|
-  # puts hash
+Ingredient.destroy_all
+
+recipes_serialized = open('db/ingredients.json').read
+recipes = JSON.parse(recipes_serialized).flatten
+
+recipes.first(100).each do |hash|
+
   hash.each do |key, value|
-    Ingredient.create(name: value)
+    puts "#{key}: #{value}"
   end
+  sleep(0.1)
 end
