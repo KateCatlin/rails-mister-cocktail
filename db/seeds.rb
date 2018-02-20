@@ -20,10 +20,14 @@ Ingredient.destroy_all
 recipes_serialized = open('db/ingredients.json').read
 recipes = JSON.parse(recipes_serialized).flatten
 
-recipes.first(100).each do |hash|
+recipes.each do |hash|
 
   hash.each do |key, value|
-    puts "#{key}: #{value}"
+    hash["ingredients"].each do |ingredient|
+      if !Ingredient.exists?(name: "#{ingredient}")
+        puts "#{ingredient}"
+        Ingredient.create(name: "#{ingredient}")
+      end
+    end
   end
-  sleep(0.1)
 end

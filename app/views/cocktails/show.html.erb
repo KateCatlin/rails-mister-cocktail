@@ -2,7 +2,7 @@
 
 <h1><%= @cocktail.name %></h1>
 
-<%= link_to 'Add Details!', new_cocktail_dose_path(@cocktail), class: "btn btn-warning" %>
+<%= link_to 'Add Ingredients', new_cocktail_dose_path(@cocktail), class: "btn btn-warning" %>
 
 <ul>
   <% @cocktail.doses.each do |dose| %>
@@ -15,4 +15,7 @@
   </li>
   <% end %>
 </ul>
+
+
+<%= link_to 'Go back', "/", class: "btn btn-treehouse" %>
 
