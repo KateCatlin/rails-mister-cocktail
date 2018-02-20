@@ -20,7 +20,7 @@ Ingredient.destroy_all
 recipes_serialized = open('db/ingredients.json').read
 recipes = JSON.parse(recipes_serialized).flatten
 
-recipes.each do |hash|
+recipes.first(10).each do |hash|
 
   hash.each do |key, value|
     hash["ingredients"].each do |ingredient|
